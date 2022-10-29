@@ -1,12 +1,12 @@
 module.exports = {
 	global: {
-		type: 'object'
+		type: 'Object'
 	},
 	this: {
-		type: 'object'
+		type: 'Object'
 	},
 	write: {
-		type: 'function',
+		type: 'Function',
 		params: [
 			{
 				rest: true,
@@ -25,7 +25,7 @@ module.exports = {
 		]
 	},
 	print: {
-		type: 'function',
+		type: 'Function',
 		params: [
 			{
 				rest: true,
@@ -44,7 +44,7 @@ module.exports = {
 		]
 	},
 	exit: {
-		type: 'function',
+		type: 'Function',
 		args: [
 			{
 				name: 'code',
@@ -54,16 +54,17 @@ module.exports = {
 		]
 	},
 	eval: {
-		type: 'function',
+		type: 'Function',
 		args: [
 			{
 				name: 'string',
 				type: 'string'
 			}
-		]
+		],
+		returns: 'Any'
 	},
 	typeof: {
-		type: 'function',
+		type: 'Function',
 		args: [
 			{
 				name: 'value'
@@ -72,7 +73,7 @@ module.exports = {
 		returns: 'String'
 	},
 	read: {
-		type: 'function',
+		type: 'Function',
 		args: [
 			{
 				name: 'end',
@@ -80,6 +81,22 @@ module.exports = {
 				type: 'String',
 				value: '\\n',
 			}
-		]
+		],
+		returns: 'String'
+	},
+	clear: {
+		type: 'Function'
+	},
+	'null': {
+		type: 'Void',
+		value: 'null'
+	},
+	nanum: {
+		type: 'Number',
+		value: 'nanum'
+	},
+	infy: {
+		type: 'Number',
+		value: 'infy'
 	}
 }
