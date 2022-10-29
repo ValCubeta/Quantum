@@ -1,5 +1,3 @@
-import './colors'
-
-fun print(...values: Any[], colorData: ColorData) {
-	colors.print(...values, colorData)
+fun print(...values: Any[], sep := ' ', end := '\r\n', colorData: ColorData) {
+	// idk
 }
