@@ -11,7 +11,9 @@ const data = {
 	exit({ code }) {
 		process.exit(code)
 	},
-	eval: evalCode
+	eval({ code }) {
+		return evalCode(code)
+	}
 }
 
 data.global = data
