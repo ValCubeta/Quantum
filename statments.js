@@ -1,7 +1,7 @@
 const string = require('./string')
 
 module.exports = {
-	'throw'(value, stack) {
+	'throw': function (value, stack) {
 		const write = process.stderr.write
 		write(string(value))
 		write('\r\n')
