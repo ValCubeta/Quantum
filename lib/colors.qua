@@ -1,0 +1,5 @@
+import './colors'
+
+fun print(...values: Any[], colorData: ColorData) {
+	colors.print(...values, colorData)
+}
