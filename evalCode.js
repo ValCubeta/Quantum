@@ -28,15 +28,10 @@ let token = { value: '' }
 const ast = []
 
 const tokenType = require('./tokenType')
+const createAST = require('./createAST')
 
-module.exports = function (code) {
-	console.log(`Evaluating code...`)
-	for (const i in code) {
-	const char = code.at(i)
-	/* if (token.value === '') {
-		token.value += char
-		token.type = tokenType(char) */
-	}
-	eval(code)
-	console.log('\tDone')
+module.exports = function (string) {
+	const ast = createAST(string)
+
+	eval(string)
 }
