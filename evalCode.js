@@ -23,15 +23,10 @@ function setData(id, value, props) {
 	data[id] = value
 }
 
-const tokens = []
-let token = { value: '' }
-const ast = []
-
-const tokenType = require('./tokenType')
+const parse = require('./parse')
 const createAST = require('./createAST')
 
 module.exports = function (string) {
-	const ast = createAST(string)
-
-	eval(string)
+	const tokens = parse(string)
+	const ast = createAST(tokens)
 }
