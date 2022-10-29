@@ -1,18 +1,16 @@
 module.exports = {
 	global: {
-		type: 'object',
-		write: false
+		type: 'object'
 	},
 	this: {
-		type: 'object',
-		write: false
+		type: 'object'
 	},
 	write: {
 		type: 'function',
 		params: [
 			{
-				name: 'values',
-				rest: true
+				rest: true,
+				name: 'values'
 				// (implicit) type = Any[]
 			},
 			{
@@ -30,8 +28,8 @@ module.exports = {
 		type: 'function',
 		params: [
 			{
-				name: 'value',
-				rest: true
+				rest: true,
+				name: 'value'
 			},
 			{
 				name: 'sep',
@@ -73,7 +71,15 @@ module.exports = {
 		],
 		returns: 'String'
 	},
-	test: {
-		type: 'Number'
+	read: {
+		type: 'function',
+		args: [
+			{
+				name: 'end',
+				optional: true,
+				type: 'String',
+				value: '\\n',
+			}
+		]
 	}
 }
