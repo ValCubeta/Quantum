@@ -58,7 +58,7 @@ module.exports = {
 		args: [
 			{
 				name: 'string',
-				type: 'string'
+				type: 'String'
 			}
 		],
 		returns: 'Any'
