@@ -1,5 +1,5 @@
 const evalCode = require('./evalCode')
-const readLine = require('./readLine/read')
+const readLine = require('./read')
 
 const data = {
 	write({ values = [], sep = '', end = ''} = {}) {
