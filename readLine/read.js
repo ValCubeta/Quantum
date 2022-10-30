@@ -1,3 +1,1 @@
-const { read } = require('./build/Release/read')
-
-module.exports = read
+module.exports = require('./build/Release/read').read

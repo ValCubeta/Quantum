@@ -1,6 +1,8 @@
 {
-	"targets": [{
-		"target_name": "read",
-		"sources": ["read.cc"]
-	}]
+	"targets": [
+		{
+			"target_name": "read",
+			"sources": ["read.cc"]
+		}
+	]
 }
