@@ -1,5 +1,0 @@
-type ColorData = { color: Number | String } | { (startColor, endColor): Number | String }
-
-fun print(...values: Any, sep := ' ', end := '\r\n', colorData: ColorData) {
-	// idk
-}

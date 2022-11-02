@@ -74,14 +74,6 @@ module.exports = {
 	},
 	read: {
 		type: 'Function',
-		args: [
-			{
-				name: 'end',
-				optional: true,
-				type: 'String',
-				value: '\\n',
-			}
-		],
 		returns: 'String'
 	},
 	clear: {

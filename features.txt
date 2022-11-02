@@ -1,0 +1,70 @@
+if [cond]: [code]
+if [cond] { [code] }
+	else: [code]
+	else { [code] }
+
+when [expression] {
+	[expression]: [code]
+	[expression] { [code] }
+	is [expression]: [code]
+	is [expression] { [code] }
+	else: [code]
+	else { [code] }
+}
+
+try [function]
+try: [code]
+try { [code] }
+	catch: [function]
+	catch [identifier]: [code]
+	catch [identifier] { [code] }
+
+foreach [identifier] in [expression]: [code]
+foreach [identifier] in [expression] { [code] }
+	else: [code]
+	else { [code] }
+
+foreach [identifier] of [expression]: [code]
+foreach [identifier] of [expression] { [code] }
+	else: [code]
+	else { [code] }
+
+[expression] and [expression]
+[expression] or [expression]
+
+import [name]
+import ([expression])
+import [identifier] from [name]
+import [identifier] from ([expression])
+	as [identifier]
+
+async
+	fun [identifier]!: [code]
+	fun [identifier]! { [code] }
+	fun [identifier]([...params]): [code]
+	fun [identifier]([...params]) { [code] }
+
+await [identifier]!
+await [identifier]([arguments])
+
+var [identifier]
+var [identifier]: [identifier]
+var [identifier] = [expression]
+var [identifier] := [expression]
+var [identifier]: [identifier] = [expression]
+
+const [identifier] later
+const [identifier]: [identifier] later
+const [identifier] = [expression]
+const [identifier] := [expression]
+const [identifier]: [identifier] = [expression]
+
+class [identifier]: [code]
+class [identifier] {
+	public [identifier]
+	private [identifier]
+	static [identifier]
+}
+
+@[identifier] [function, class or class member declaration]
+@[identifier]([arguments]) [function, class or class member declaration]
