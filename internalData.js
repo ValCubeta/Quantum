@@ -11,7 +11,7 @@ module.exports = {
 			{
 				rest: true,
 				name: 'values'
-				// (implicit) type = Any[]
+				// (implicit) type = T[]
 			},
 			{
 				name: 'sep',
@@ -79,7 +79,7 @@ module.exports = {
 	clear: {
 		type: 'Function'
 	},
-	'null': {
+	null: {
 		type: 'Void',
 		value: 'null'
 	},
