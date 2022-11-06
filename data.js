@@ -1,5 +1,6 @@
 const evalCode = require('./evalCode')
 const readLine = require('./read')
+const typeOf = require('./typeof')
 
 const data = {
 	write({ values = [], sep = '', end = '' } = {}) {
@@ -22,7 +23,7 @@ const data = {
 		console.clear()
 	},
 	typeof({ value } = {}) {
-		//
+		return typeOf(value)
 	}
 }
 

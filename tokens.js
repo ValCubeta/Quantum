@@ -9,5 +9,5 @@ module.exports = {
 		write('\r\n')
 		exit(1)
 	},
-	'=': function (a, b) {}
+	'==': function (value, other) {}
 }
