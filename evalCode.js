@@ -26,7 +26,7 @@ function setData(id, value, props) {
 const parse = require('./parse')
 const createAST = require('./createAST')
 
-module.exports = function (string) {
+module.exports = function (string, context) {
 	const tokens = parse(string)
 	const ast = createAST(tokens)
 }
