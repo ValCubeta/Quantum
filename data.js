@@ -24,6 +24,9 @@ const data = {
 	},
 	typeof({ value } = {}) {
 		return typeOf(value)
+	},
+	assert({ condition, message }) {
+		evalCode('unless condition:throw message', { condition, message })
 	}
 }
 

@@ -5,6 +5,20 @@ module.exports = {
 	this: {
 		type: 'Object'
 	},
+
+	null: {
+		type: 'Void',
+		value: 'null'
+	},
+	nanum: {
+		type: 'Number',
+		value: 'nanum'
+	},
+	infy: {
+		type: 'Number',
+		value: 'infy'
+	},
+
 	write: {
 		type: 'Function',
 		params: [
@@ -79,16 +93,15 @@ module.exports = {
 	clear: {
 		type: 'Function'
 	},
-	null: {
-		type: 'Void',
-		value: 'null'
-	},
-	nanum: {
-		type: 'Number',
-		value: 'nanum'
-	},
-	infy: {
-		type: 'Number',
-		value: 'infy'
+	assert: {
+		type: 'Function',
+		args: [
+			{
+				name: 'condition'
+			},
+			{
+				name: 'message'
+			}
+		]
 	}
 }
