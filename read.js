@@ -1,1 +1,0 @@
-module.exports = require('./read-line/build/release/read').read

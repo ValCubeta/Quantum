@@ -68,3 +68,31 @@ class [identifier] {
 
 @[identifier] [function, class or class member declaration]
 @[identifier]([arguments]) [function, class or class member declaration]
+
+
+
+Any.to_string() -> String
+
+Number.fix(digits: Number) -> String // 100.fix(2) => '100.00'
+
+String.reverse() -> String
+String.to_upper() -> String
+String.to_lower() -> String
+String.to_title() -> String
+String.replace(searcher: RegExp | String | Function, replacer: String | Function) -> String
+String.at(index: Number, default?: Any)
+String.match(rex: RegExp) -> RegExp.Match
+
+RegExp.matches(text: String) -> Boolean
+
+Object.get(name: String, default?: Any) -> Any
+Object.set(name: String, value: Any) -> Void
+Object.all_keys(filter?: Function) -> Array<String>
+Object.all_values(filter?: Function) -> Array<Any>
+
+Array.at(index: Number, default?: Any) -> Any
+Array.set(index: Number, value: Any) -> Void
+Array.section(start?, end?, step? = 1) -> Array<Any>
+Array.append(value)
+Array.preppend(value)
+Array.remove(index)
