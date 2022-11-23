@@ -1,3 +1,8 @@
+from console import:
+  write
+  print
+  read
+
 fun main!:
 	name = ask('What is your name?')
 	print('Hello $name!')
