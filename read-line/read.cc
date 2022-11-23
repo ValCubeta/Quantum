@@ -9,7 +9,7 @@ namespace read {
 		std::string line;
 		std::getline(std::cin, line);
 
-		const char * chars = line.c_str();
+		const char* chars = line.c_str();
 		auto result = v8::String::NewFromUtf8(isolate, chars).ToLocalChecked();
 		args.GetReturnValue().Set(result);
 	}
