@@ -1,4 +1,8 @@
 fun main!:
-	write('Insert your name: ')
-	name = read!
+	name = ask('What is your name?')
 	print('Hello $name!')
+
+fun ask(question: str) -> str:
+  write(question, ' ')
+  response = read!
+  return response
