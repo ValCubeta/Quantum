@@ -1,5 +1,4 @@
-fun main! {
+fun main!:
 	write('Insert your name: ')
-	const name = read!
+	name = read!
 	print('Hello $name!')
-}
