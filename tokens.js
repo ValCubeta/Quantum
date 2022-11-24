@@ -1,13 +1,13 @@
-const string = require('./string')
+const toString = require('./toString')
 
 module.exports = {
 	'throw': function (value, stack) {
 		const write = process.stderr.write
-		write(string(value))
+		write(toString(value))
 		write('\r\n')
 		write(stack)
 		write('\r\n')
 		exit(1)
 	},
-	'==': function (value, other) {}
+	'equals': function (value, other) {}
 }

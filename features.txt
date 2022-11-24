@@ -1,98 +1,143 @@
-if [cond]: [code]
-if [cond] { [code] }
-	else: [code]
-	else { [code] }
+any.toString() -> String
 
-when [expression] {
-	[expression]: [code]
-	[expression] { [code] }
-	is [expression]: [code]
-	is [expression] { [code] }
-	else: [code]
-	else { [code] }
+number.fix(digits: Number) -> String    // 100.fix(2) => '100.00'
+
+string.reverse() -> String
+string.toUpper(section?: Range) -> String
+string.toLower(section?: Range) -> String
+string.toTitle() -> String
+string.replace(searcher: RegExp | String | Function, replacer: String | Function) -> String
+string.at(index: Number, default?)
+string.match(rex: RegExp) -> String[]
+string.startsWith(value: String) -> Boolean
+string.endsWith(value: String) -> Boolean
+string.indexOf(value: String) -> Number
+string.pad(size: Number, fillText: String)
+string.padStart(size: Number, fillText := ' ')
+string.padEnd(size: Number, fillText := ' ')
+string.trim()
+string.trimStart()
+string.trimEnd()
+string.codeAt(index: Number) -> Number
+string.reverse() -> String
+string.randomChar(range?: Range) -> String
+
+regexp.matches(text: String) -> Boolean
+regexp.flags: String
+regexp.body: String
+
+Object.toString(value) -> String
+object.get(name: String, default?)
+object.set(name: String, value) -> Void
+object.has(name: String) -> Boolean
+object.allKeys() -> String[]
+object.allValues() -> Any[]
+
+array.at(index: Number, default?)
+array.set(index: Number, value) -> Void
+array.section((start, end, step = 1)?: Number) -> Array
+array.append(value)
+array.preppend(value)
+array.remove(index)
+array.insert(index, value)
+array.filter(cb: (element, index, array) -> Boolean)
+array.reduce(cb: fun (prev, curr, index, array), default)
+array.indexOf(value) -> Number
+array.flat(depth: Number)
+array.join(joiner: String) -> String
+array.reverse()
+array.sort(cb?)
+array.randomItem(range?: Range)
+
+function.name: String
+function.arguments: Function.Argument[]
+
+
+error.name: String = this.__ctor.name    // TypeError { name: 'TypeError' }
+error.description?: String
+error.stack?: String
+
+class Error {
+	getter name => this.__ctor.name
+	description: str later
+	toString! => description? name : '$name: $description'
 }
 
-try [function]
-try: [code]
-try { [code] }
-	catch: [function]
-	catch [identifier]: [code]
-	catch [identifier] { [code] }
 
-foreach [identifier] in [expression]: [code]
-foreach [identifier] in [expression] { [code] }
-	else: [code]
-	else { [code] }
 
-foreach [identifier] of [expression]: [code]
-foreach [identifier] of [expression] { [code] }
-	else: [code]
-	else { [code] }
 
-[expression] and [expression]
-[expression] or [expression]
+if () {} or () {} else {}
+unless () {} or () {} else {}
 
-import [name]
-import ([expression])
-import [identifier] from [name]
-import [identifier] from ([expression])
-	as [identifier]
-
-async
-	fun [identifier]!: [code]
-	fun [identifier]! { [code] }
-	fun [identifier]([...params]): [code]
-	fun [identifier]([...params]) { [code] }
-
-await [identifier]!
-await [identifier]([arguments])
-
-var [identifier]
-var [identifier]: [identifier]
-var [identifier] = [expression]
-var [identifier] := [expression]
-var [identifier]: [identifier] = [expression]
-
-const [identifier] later
-const [identifier]: [identifier] later
-const [identifier] = [expression]
-const [identifier] := [expression]
-const [identifier]: [identifier] = [expression]
-
-class [identifier]: [code]
-class [identifier] {
-	public [identifier]
-	private [identifier]
-	static [identifier]
+switch () as () { // switch es una expresion igual que una ternaria,
+                  // segun el contexto return va a funcionar de diferentes maneras
+	() {}
+	is () {}
+	else {}
 }
 
-@[identifier] [function, class or class member declaration]
-@[identifier]([arguments]) [function, class or class member declaration]
+loop {
+	break
+	skip
+}
+while () {}
+until () {}
+for () in () {}
+for () of () {}
 
+try {} catch (): () {}
+/* try {} catch: () */    // catch: printerr
 
+... then () {}
 
-Any.to_string() -> String
+import () as () from ()
 
-Number.fix(digits: Number) -> String // 100.fix(2) => '100.00'
+(): () = ()
+const (): () = ()
+(): () later
 
-String.reverse() -> String
-String.to_upper() -> String
-String.to_lower() -> String
-String.to_title() -> String
-String.replace(searcher: RegExp | String | Function, replacer: String | Function) -> String
-String.at(index: Number, default?: Any)
-String.match(rex: RegExp) -> RegExp.Match
+fun ()(()) -> () {
+	ret ()
+}
 
-RegExp.matches(text: String) -> Boolean
+(()) -> () => {}
 
-Object.get(name: String, default?: Any) -> Any
-Object.set(name: String, value: Any) -> Void
-Object.all_keys(filter?: Function) -> Array<String>
-Object.all_values(filter?: Function) -> Array<Any>
+class () extends () {
+	priv ()
+	public ()    // solo sobreescribiendo, si no se lanza una advertencia
+	static ()
+	()(()) {}    // __ctor() {}
+}
 
-Array.at(index: Number, default?: Any) -> Any
-Array.set(index: Number, value: Any) -> Void
-Array.section(start?, end?, step? = 1) -> Array<Any>
-Array.append(value)
-Array.preppend(value)
-Array.remove(index)
+type () = ()
+type () {}
+
+() and ()
+() or ()
+not ()
+() in ()
+throw ()
+del ()
+
+(()) ()    // (str) 123 -> '123'
+
+write(values, sep, end)
+print(values, sep, end)
+read()
+typeof(value) -> str
+sizeof(value) -> num
+isempty(value) -> bool
+exit(code)
+eval(string)
+isinstance(value, ctor)
+isparent(ctor, master)
+/* promise(function: fun (resolve, reject)) */
+
+math.random(0 ~ 100) |> print(a, it, b)
+
+await fetch('https://books.com/')
+	then res:
+		res.json()
+	then json:
+		return json.books
+
