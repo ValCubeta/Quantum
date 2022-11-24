@@ -1,9 +1,37 @@
+/* keys.import(['write', 'read'], 'console') */
 import { write, read } from console
 
+/* scope.register('main', {
+	type: 'function',
+	params: [
+		{
+			name: 'args',
+			type: [
+				'[]',
+				{
+					type: 'arr',
+					elements: 'str'
+				}
+			]
+		}
+	],
+	body: 'name=ask("What is your name?");print("Hello $name!")'
+}) */
 fun main(args: str[?]) -> void:
 	name = ask('What is your name?')
 	print('Hello $name!')
 
+/* scope.register('ask', {
+	type: 'function',
+	params: [
+		{
+			name: 'question',
+			type: 'str'
+		}
+	],
+	returns: 'str',
+	body: 'write(question," ");response=read!;return response'
+}) */
 fun ask(question: str) -> str:
   write(question, ' ')
   response = read!
