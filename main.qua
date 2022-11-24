@@ -1,4 +1,4 @@
-/* keys.import(['write', 'read'], 'console') */
+/* keys.import(['console', ['write', 'read']])) */
 import { write, read } from console
 
 /* scope.register('main', {
