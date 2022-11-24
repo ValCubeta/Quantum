@@ -14,26 +14,6 @@ module.exports = {
 		type: 'num',
 		value: 'infy'
 	},
-
-	write: {
-		type: 'function',
-		params: [
-			{
-				rest: true,
-				name: 'values'
-				// (implicit) type = T[]
-			},
-			{
-				name: 'sep',
-				type: 'str'
-				// (implicit) value = str.__default
-			},
-			{
-				name: 'end',
-				type: 'str'
-			}
-		]
-	},
 	print: {
 		type: 'function',
 		params: [
@@ -80,12 +60,5 @@ module.exports = {
 			}
 		],
 		returns: 'str'
-	},
-	read: {
-		type: 'function',
-		returns: 'str'
-	},
-	clear: {
-		type: 'function'
 	}
 }
