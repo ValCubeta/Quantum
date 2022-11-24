@@ -17,7 +17,7 @@ import { write, read } from console
 	],
 	body: 'name=ask("What is your name?");print("Hello $name!")'
 }) */
-fun main(args: str[?]) -> void:
+fun main(args: str[?]) -> void:    // args must be an empty array using `[?]`
 	name = ask('What is your name?')
 	print('Hello $name!')
 
