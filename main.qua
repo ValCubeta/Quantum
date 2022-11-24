@@ -1,5 +1,13 @@
-fun main! {
-	write('Insert your name: ')
-	const name = read!
+from console import:
+  write
+  print
+  read
+
+fun main!:
+	name = ask('What is your name?')
 	print('Hello $name!')
-}
+
+fun ask(question: str) -> str:
+  write(question, ' ')
+  response = read!
+  return response
