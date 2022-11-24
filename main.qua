@@ -10,7 +10,7 @@ import { write, read } from console
 				'[]',
 				{
 					type: 'arr',
-					elements: 'str'
+					elements: ['str']
 				}
 			]
 		}
