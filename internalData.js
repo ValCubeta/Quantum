@@ -1,26 +1,26 @@
 module.exports = {
 	global: {
-		type: 'Object'
+		type: 'obj'
 	},
 	this: {
-		type: 'Object'
+		type: 'obj'
 	},
 
 	null: {
-		type: 'Void',
+		type: 'void',
 		value: 'null'
 	},
 	nanum: {
-		type: 'Number',
+		type: 'num',
 		value: 'nanum'
 	},
 	infy: {
-		type: 'Number',
+		type: 'num',
 		value: 'infy'
 	},
 
 	write: {
-		type: 'Function',
+		type: 'function',
 		params: [
 			{
 				rest: true,
@@ -29,17 +29,17 @@ module.exports = {
 			},
 			{
 				name: 'sep',
-				type: 'String'
-				// (implicit) value = String.__default
+				type: 'str'
+				// (implicit) value = str.__default
 			},
 			{
 				name: 'end',
-				type: 'String'
+				type: 'str'
 			}
 		]
 	},
 	print: {
-		type: 'Function',
+		type: 'function',
 		params: [
 			{
 				rest: true,
@@ -47,61 +47,49 @@ module.exports = {
 			},
 			{
 				name: 'sep',
-				type: 'String',
+				type: 'str',
 				value: `' '`
 			},
 			{
 				name: 'end',
-				type: 'String',
+				type: 'str',
 				value: `'\\r\\n'`
 			}
 		]
 	},
 	exit: {
-		type: 'Function',
+		type: 'function',
 		args: [
 			{
 				name: 'code',
-				type: 'Number'
-				// (implicit) value = Number.__default
+				type: 'num'
+				// (implicit) value = num.__default
 			}
 		]
 	},
 	eval: {
-		type: 'Function',
+		type: 'function',
 		args: [
 			{
 				name: 'string',
-				type: 'String'
+				type: 'str'
 			}
-		],
-		returns: 'Any'
+		]
 	},
 	typeof: {
-		type: 'Function',
+		type: 'function',
 		args: [
 			{
 				name: 'value'
 			}
 		],
-		returns: 'String'
+		returns: 'str'
 	},
 	read: {
-		type: 'Function',
-		returns: 'String'
+		type: 'function',
+		returns: 'str'
 	},
 	clear: {
-		type: 'Function'
-	},
-	assert: {
-		type: 'Function',
-		args: [
-			{
-				name: 'condition'
-			},
-			{
-				name: 'message'
-			}
-		]
+		type: 'function'
 	}
 }
