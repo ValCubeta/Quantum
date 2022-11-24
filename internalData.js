@@ -2,10 +2,6 @@ module.exports = {
 	global: {
 		type: 'obj'
 	},
-	this: {
-		type: 'obj'
-	},
-
 	null: {
 		type: 'void',
 		value: 'null'
