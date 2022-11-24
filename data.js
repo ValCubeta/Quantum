@@ -1,5 +1,4 @@
 const evalCode = require('./evalCode')
-const readLine = require('./read-line/build/release/read').read
 const typeOf = require('./typeof')
 
 const data = {
