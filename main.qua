@@ -1,9 +1,6 @@
-from console import:
-  write
-  print
-  read
+import { write, read } from console
 
-fun main!:
+fun main(args: str[?]) -> void:
 	name = ask('What is your name?')
 	print('Hello $name!')
 
