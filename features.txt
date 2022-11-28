@@ -1,116 +1,119 @@
-any.toString() -> String
+any.to_string() -> str
+getter any.size -> num
 
-number.fix(digits: Number) -> String    // 100.fix(2) => '100.00'
+number.fix(digits: num) -> str    // 100.fix(2) => '100.00'
 
-string.reverse() -> String
-string.toUpper(section?: Range) -> String
-string.toLower(section?: Range) -> String
-string.toTitle() -> String
-string.replace(searcher: RegExp | String | Function, replacer: String | Function) -> String
-string.at(index: Number, default?)
-string.match(rex: RegExp) -> String[]
-string.startsWith(value: String) -> Boolean
-string.endsWith(value: String) -> Boolean
-string.indexOf(value: String) -> Number
-string.pad(size: Number, fillText: String)
-string.padStart(size: Number, fillText := ' ')
-string.padEnd(size: Number, fillText := ' ')
+string.reverse() -> str
+string.to_upper(section?: range) -> str
+string.to_lower(section?: range) -> str
+string.to_title() -> str
+string.replace(searcher: (regexp | str | function), replacer: (str | function)) -> str
+string.at(index: num, default?)
+string.match(rex: regexp) -> str[]
+string.starts_with(value: str) -> bool
+string.ends_with(value: str) -> bool
+string.index_of(part: str) -> num
+string.pad(size: num, fill: str)
+string.padStart(size: num, fill := ' ')
+string.padEnd(size: num, fill := ' ')
 string.trim()
-string.trimStart()
-string.trimEnd()
-string.codeAt(index: Number) -> Number
-string.reverse() -> String
-string.randomChar(range?: Range) -> String
+string.trim_start()
+string.trim_end()
+string.code_at(index: num) -> num
+string.reverse() -> str
+string.pick(range?: range) -> str
+string.split(splitter: (regexp | str) = /\s+/)
 
-regexp.matches(text: String) -> Boolean
-regexp.flags: String
-regexp.body: String
+regexp.matches(text: str) -> bool
+regexp.flags: str
+regexp.body: str
 
-Object.toString(value) -> String
-object.get(name: String, default?)
-object.set(name: String, value) -> Void
-object.has(name: String) -> Boolean
-object.allKeys() -> String[]
-object.allValues() -> Any[]
+object.get(name: str, default?)
+object.set(name: str, value) -> void
+object.has(name: str) -> bool
+getter object.keys -> str[]
+getter object.values -> Any[]
 
-array.at(index: Number, default?)
-array.set(index: Number, value) -> Void
-array.section((start, end, step = 1)?: Number) -> Array
+array.at(index: num, default?)
+array.set(index: num, value) -> void
+array.section((start, end, step = 1)?: num) -> arr
 array.append(value)
 array.preppend(value)
 array.remove(index)
 array.insert(index, value)
-array.filter(cb: (element, index, array) -> Boolean)
-array.reduce(cb: fun (prev, curr, index, array), default)
-array.indexOf(value) -> Number
-array.flat(depth: Number)
-array.join(joiner: String) -> String
+array.filter(cb: (element, index, array) -> bool)
+array.reduce(cb: (prev, curr, index, array) -> void, default)
+array.index_of(value) -> num
+array.flat(depth: num)
+array.join(joiner: str = ', ') -> str
 array.reverse()
 array.sort(cb?)
-array.randomItem(range?: Range)
+array.pick(range?: range)
 
-function.name: String
-function.arguments: Function.Argument[]
-
-
-error.name: String = this.__ctor.name    // TypeError { name: 'TypeError' }
-error.description?: String
-error.stack?: String
-
-class Error {
-	getter name => this.__ctor.name
-	description: str later
-	toString! => description? name : '$name: $description'
-}
+function.name: str
 
 
+error.name: str = this.__ctor.name    // TypeError { name: 'TypeError' }
+error.description?: str
+error.stack?: str
+
+class Error:
+	getter name:
+		return this.__ctor.name
+	const description: str? = null
+	__ctor(description):
+		this += { description }
+	to_string!:
+		if description:
+			return '$name: $description'
+		else:
+			return name
 
 
-if () {} or () {} else {}
-unless () {} or () {} else {}
 
-switch () as () { // switch es una expresion igual que una ternaria,
-                  // segun el contexto return va a funcionar de diferentes maneras
-	() {}
-	is () {}
-	else {}
-}
 
-loop {
+if (): ()
+or (): ()    // else if
+else: ()
+unless (): ()    // if not
+
+switch () as (): // switch is an expression
+	(): ()
+	is (), (): ()
+	else: ()
+
+loop:
 	break
 	skip
-}
-while () {}
-until () {}
-for () in () {}
-for () of () {}
+while (): ()
+until (): ()
+for () in (): ()
+for () of (): ()
 
-try {} catch (): () {}
-/* try {} catch: () */    // catch: printerr
+try: ()
+catch (): ()
 
-... then () {}
+... then (): ()
 
 import () as () from ()
 
+from () import: ()
+
 (): () = ()
 const (): () = ()
-(): () later
 
-fun ()(()) -> () {
-	ret ()
-}
+fun ()(()) -> ():
+	return ()
 
-(()) -> () => {}
+(()) -> () =>    // (params) -> returns => expression
 
-class () extends () {
-	priv ()
-	public ()    // solo sobreescribiendo, si no se lanza una advertencia
+class () extends ():
+	$private_prop
+	public ()
 	static ()
-	()(()) {}    // __ctor() {}
-}
+	()(()) {}    // __ctor(): ()    ->    public fun __ctor(): ()
 
-type () = ()
-type () {}
+type ():<(), ()> = ()
 
 () and ()
 () or ()
@@ -119,25 +122,32 @@ not ()
 throw ()
 del ()
 
-(()) ()    // (str) 123 -> '123'
-
-write(values, sep, end)
 print(values, sep, end)
-read()
 typeof(value) -> str
-sizeof(value) -> num
 isempty(value) -> bool
 exit(code)
 eval(string)
 isinstance(value, ctor)
-isparent(ctor, master)
-/* promise(function: fun (resolve, reject)) */
+parentof(some_class)
 
-math.random(0 ~ 100) |> print(a, it, b)
+{
+	name = value    // normal assignments
+	object    // object = object
+	function(): ()
+	...another_obj
+}
 
-await fetch('https://books.com/')
-	then res:
-		res.json()
-	then json:
-		return json.books
+#{
+	// dict: all properties will be constants
+}
 
+[
+	value
+	...another_arr
+]
+
+#[
+	// tuple
+]
+
+() |> (it)
