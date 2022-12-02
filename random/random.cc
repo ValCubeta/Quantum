@@ -17,6 +17,7 @@ namespace Random {
 		Local<Context> context = isolate -> GetCurrentContext();
 
 		int seed = args[0].As<Number>() -> Value();
+		cout << "Using seed " << seed << endl;
 		srand(seed);
 	}
 
