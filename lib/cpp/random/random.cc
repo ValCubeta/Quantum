@@ -21,7 +21,7 @@ namespace Random {
 		srand(seed);
 	}
 
-	void random(const FunctionCallbackInfo<Value> &args) {
+	void ranum(const FunctionCallbackInfo<Value> &args) {
 		Isolate* isolate = args.GetIsolate();
 		Local<Context> context = isolate -> GetCurrentContext();
 
@@ -43,7 +43,7 @@ namespace Random {
 	void Initialize(Local<Object> exports) {
 		NODE_SET_METHOD(exports, "main", main);
 		NODE_SET_METHOD(exports, "use_seed", use_seed);
-		NODE_SET_METHOD(exports, "random", random);
+		NODE_SET_METHOD(exports, "ranum", ranum);
 	}
 
 	NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize);
