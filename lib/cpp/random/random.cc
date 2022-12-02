@@ -16,9 +16,12 @@ namespace Random {
 		Isolate* isolate = args.GetIsolate();
 		Local<Context> context = isolate -> GetCurrentContext();
 
-		int seed = args[0].As<Number>() -> Value();
-		cout << "Using seed " << seed << endl;
-		srand(seed);
+		if (args.Length() == 1) {
+			int seed = args[0].As<Number>() -> Value();
+			srand(seed);
+		} else {
+			cout << "Error at random.use_seed: wrong number of arguments" << endl;
+		}
 	}
 
 	void ranum(const FunctionCallbackInfo<Value> &args) {
@@ -29,14 +32,15 @@ namespace Random {
 			int number = rand() % 101; // return a number between 0 and 100
 			Local<Number> result = Number::New(isolate, number);
 			args.GetReturnValue().Set(result);
-		}
-		if (args.Length() == 2) {
+		} else if (args.Length() == 2) {
 			int min = args[0].As<Number>() -> Value();
 			int max = args[1].As<Number>() -> Value();
 			int range = max - min + 1;
 			int number = rand() % range + min;
 			Local<Number> result = Number::New(isolate, number);
 			args.GetReturnValue().Set(result);
+		} else {
+			cout << "Error at random.ranum: wrong number of arguments" << endl;
 		}
 	}
 
