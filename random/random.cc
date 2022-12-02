@@ -7,7 +7,10 @@ namespace Random {
 	using namespace std;
 	using namespace v8;
 
-	srand(time(0));
+	void main(const FunctionCallbackInfo<Value> &args) {
+		int current_time = time(0);
+		srand(current_time);
+	}
 
 	void use_seed(const FunctionCallbackInfo<Value> &args) {
 		Isolate* isolate = args.GetIsolate();
@@ -21,11 +24,8 @@ namespace Random {
 		Isolate* isolate = args.GetIsolate();
 		Local<Context> context = isolate -> GetCurrentContext();
 
-		int min = args[0].As<Number>() -> Value();
-		int max = args[1].As<Number>() -> Value();
-
 		if (args.Length() == 0) {
-			int number = rand();
+			int number = rand() % 101; // return a number between 0 and 100
 			Local<Number> result = Number::New(isolate, number);
 			args.GetReturnValue().Set(result);
 		}
@@ -40,8 +40,9 @@ namespace Random {
 	}
 
 	void Initialize(Local<Object> exports) {
-		NODE_SET_METHOD(exports, "random", random);
+		NODE_SET_METHOD(exports, "main", main);
 		NODE_SET_METHOD(exports, "use_seed", use_seed);
+		NODE_SET_METHOD(exports, "random", random);
 	}
 
 	NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize);
