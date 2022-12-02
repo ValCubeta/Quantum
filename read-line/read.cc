@@ -1,20 +1,22 @@
-#include <node.h>
 #include <iostream>
+#include <node.h>
 
-namespace read {
-	void read(const v8::FunctionCallbackInfo<v8::Value> &args) {
-		v8::Isolate* isolate = args.GetIsolate();
-		v8::Local<v8::Context> context = isolate -> GetCurrentContext();
+namespace Read {
+	using namespace std;
+	using namespace v8;
+	void read(const FunctionCallbackInfo<Value> &args) {
+		Isolate* isolate = args.GetIsolate();
+		Local<Context> context = isolate -> GetCurrentContext();
 
-		std::string line;
-		std::getline(std::cin, line);
+		string line;
+		getline(cin, line);
 
 		const char* chars = line.c_str();
-		auto result = v8::String::NewFromUtf8(isolate, chars).ToLocalChecked();
+		auto result = String::NewFromUtf8(isolate, chars).ToLocalChecked();
 		args.GetReturnValue().Set(result);
 	}
 
-	void Initialize(v8::Local<v8::Object> exports) {
+	void Initialize(Local<Object> exports) {
 		NODE_SET_METHOD(exports, "read", read);
 	}
 

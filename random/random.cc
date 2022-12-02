@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <node.h>
+
+namespace Random {
+	using namespace std;
+	using namespace v8;
+
+	srand(time(0));
+
+	void use_seed(const FunctionCallbackInfo<Value> &args) {
+		Isolate* isolate = args.GetIsolate();
+		Local<Context> context = isolate -> GetCurrentContext();
+
+		int seed = args[0].As<Number>() -> Value();
+		srand(seed);
+	}
+
+	void random(const FunctionCallbackInfo<Value> &args) {
+		Isolate* isolate = args.GetIsolate();
+		Local<Context> context = isolate -> GetCurrentContext();
+
+		int min = args[0].As<Number>() -> Value();
+		int max = args[1].As<Number>() -> Value();
+
+		if (args.Length() == 0) {
+			int number = rand();
+			Local<Number> result = Number::New(isolate, number);
+			args.GetReturnValue().Set(result);
+		}
+		if (args.Length() == 2) {
+			int min = args[0].As<Number>() -> Value();
+			int max = args[1].As<Number>() -> Value();
+			int range = max - min + 1;
+			int number = rand() % range + min;
+			Local<Number> result = Number::New(isolate, number);
+			args.GetReturnValue().Set(result);
+		}
+	}
+
+	void Initialize(Local<Object> exports) {
+		NODE_SET_METHOD(exports, "random", random);
+		NODE_SET_METHOD(exports, "use_seed", use_seed);
+	}
+
+	NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize);
+}
