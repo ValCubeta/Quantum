@@ -7,21 +7,25 @@ namespace Random {
 	using namespace std;
 	using namespace v8;
 
+	int current_seed = time(0);
+
 	void main(const FunctionCallbackInfo<Value> &args) {
-		int current_time = time(0);
-		srand(current_time);
+		srand(current_seed);
 	}
 
 	void use_seed(const FunctionCallbackInfo<Value> &args) {
-		Isolate* isolate = args.GetIsolate();
-		Local<Context> context = isolate -> GetCurrentContext();
-
 		if (args.Length() == 1) {
 			int seed = args[0].As<Number>() -> Value();
 			srand(seed);
 		} else {
 			cout << "Error at random.use_seed: wrong number of arguments" << endl;
 		}
+	}
+
+	void get_seed(const FunctionCallbackInfo<Value> &args) {
+		Isolate* isolate = args.GetIsolate();
+		Local<Number> result = Number::New(isolate, current_seed);
+		args.GetReturnValue().Set(result);
 	}
 
 	void ranum(const FunctionCallbackInfo<Value> &args) {
@@ -47,6 +51,7 @@ namespace Random {
 	void Initialize(Local<Object> exports) {
 		NODE_SET_METHOD(exports, "main", main);
 		NODE_SET_METHOD(exports, "use_seed", use_seed);
+		NODE_SET_METHOD(exports, "get_seed", get_seed);
 		NODE_SET_METHOD(exports, "ranum", ranum);
 	}
 
