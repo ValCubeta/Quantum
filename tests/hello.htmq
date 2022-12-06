@@ -1,0 +1,9 @@
+head:
+	meta ('lang', 'en-US')
+	meta ('charset', 'UTF-8')
+	meta ('viewport', { width = device-width, initial-scale = 1.0 })
+	link ('styles.qss', as = 'StyleSheet')
+	link ('main.q', as = 'Quantum')
+body (on-load = do: main!):
+	button #button-id (on-click = do: click_handler(this)):
+		'Click me'

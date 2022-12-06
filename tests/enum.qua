@@ -1,0 +1,13 @@
+class Enum:
+	__ctor(array: str[?]) -> (obj:<str, num, match_empty = true>):
+		for i of array:
+			this.set(array.at(i), i)
+	to_string!:
+		if isempty(this):
+			return 'Enum {}'
+		else:
+			return 'Enum { $( this.keys.join! ) }'
+
+fun main(args: str[]) -> void:
+	enum := Enum('Me pican los cocos ayy'.split!)
+	print(enum) // Enum { Me, pican, los, cocos, ayy }
