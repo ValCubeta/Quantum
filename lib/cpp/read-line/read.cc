@@ -5,14 +5,14 @@ namespace Read {
 	using namespace std;
 	using namespace v8;
 	void read(const FunctionCallbackInfo<Value> &args) {
-		Isolate* isolate = args.GetIsolate();
-		Local<Context> context = isolate -> GetCurrentContext();
-
+		// Get the line
 		string line;
 		getline(cin, line);
-
+		// Convert to chars
 		const char* chars = line.c_str();
-		auto result = String::NewFromUtf8(isolate, chars).ToLocalChecked();
+		// Convert to JS string
+		auto result = String::NewFromUtf8(args.GetIsolate(), chars).ToLocalChecked();
+		// Return the line
 		args.GetReturnValue().Set(result);
 	}
 
