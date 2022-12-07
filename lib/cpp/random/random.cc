@@ -3,7 +3,7 @@
 #include <time.h>
 #include <node.h>
 
-namespace Random {
+namespace random {
 	using namespace std;
 	using namespace v8;
 

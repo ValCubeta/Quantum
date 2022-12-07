@@ -1,7 +1,7 @@
 #include <iostream>
 #include <node.h>
 
-namespace Read {
+namespace read {
 	using namespace std;
 	using namespace v8;
 	void read(const FunctionCallbackInfo<Value> &args) {
