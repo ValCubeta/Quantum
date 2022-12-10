@@ -1,4 +1,4 @@
-function splitByLength(string, length) {
+/* function splitByLength(string, length) {
 	const result = []
 	let lineIndex = 0
 	let line = ''
@@ -56,4 +56,4 @@ function table(obj) {
 
 const start = Date.now()
 table({ columns: process.stdout.columns })
-console.log({ time: `${Date.now() - start} ms` })
+console.log({ time: `${Date.now() - start} ms` }) */
